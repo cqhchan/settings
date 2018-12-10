@@ -11,6 +11,9 @@
 
 - (void)handleMethodCall:(FlutterMethodCall*)call result:(FlutterResult)result {
   if ([@"wifi" isEqualToString:call.method]) {
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:"App-Prefs:root=WIFI"]];
+    result(@YES);
+  } else if ([@"app" isEqualToString:call.method]) {
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString]];
     result(@YES);
   } else {

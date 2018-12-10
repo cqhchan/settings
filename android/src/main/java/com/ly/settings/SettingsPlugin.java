@@ -28,6 +28,11 @@ public class SettingsPlugin implements MethodCallHandler {
                 openWiFiSettings();
                 result.success(true);
                 break;
+
+            case "app":
+                openAppSettings();
+                result.success(true);
+                break;
             default:
                 result.notImplemented();
                 break;
@@ -36,6 +41,10 @@ public class SettingsPlugin implements MethodCallHandler {
 
     private void openWiFiSettings() {
         registrar.activity().startActivity(new Intent(Settings.ACTION_WIFI_SETTINGS));
+    }
+
+    private void openAppSettings() {
+        registrar.activity().startActivity(new Intent(Settings.ACTION_APPLICATION_SETTINGS));
     }
 
 }
